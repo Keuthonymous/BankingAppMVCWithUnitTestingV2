@@ -2,6 +2,7 @@
 using BankingAppMVCWithUnitTestingV2.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -22,6 +23,33 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
                         where p.ID == id
                         select p).FirstOrDefault();
             return query;
+        }
+
+        public void Add(Person person)
+        {
+            if (!db.Persons.Contains(person))
+            {
+                db.Persons.Add(person);
+                db.SaveChanges();
+            }
+        }
+
+        public void Remove(Person person)
+        {
+            if (db.Persons.Contains(person))
+            {
+                db.Persons.Remove(person);
+                db.SaveChanges();
+            }
+        }
+
+        public void Edit(Person person)
+        {
+            if (db.Persons.Contains(person))
+            {
+                db.Entry(person).State = EntityState.Modified;
+                db.SaveChanges();
+            }
         }
 
         public IEnumerable<Person> GetByFName(string Fname)
