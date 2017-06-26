@@ -52,8 +52,7 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Persons.Add(person);
-                db.SaveChanges();
+                db.Add(person);
                 return RedirectToAction("Index");
             }
 
@@ -67,7 +66,7 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.Persons.Find(id);
+            Person person = db.Person(id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -84,8 +83,7 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(person).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Edit(person);
                 return RedirectToAction("Index");
             }
             return View(person);
@@ -98,7 +96,7 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = db.Persons.Find(id);
+            Person person = db.Person(id);
             if (person == null)
             {
                 return HttpNotFound();
@@ -111,9 +109,8 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Person person = db.Persons.Find(id);
-            db.Persons.Remove(person);
-            db.SaveChanges();
+            Person person = db.Person(id);
+            db.Remove(person);
             return RedirectToAction("Index");
         }
 

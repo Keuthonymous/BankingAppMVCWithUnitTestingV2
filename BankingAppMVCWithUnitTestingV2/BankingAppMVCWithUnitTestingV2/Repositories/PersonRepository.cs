@@ -8,7 +8,7 @@ using System.Web;
 
 namespace BankingAppMVCWithUnitTestingV2.Repositories
 {
-    public class PersonRepository
+    public class PersonRepository : IDisposable
     {
         public BankContext db = new BankContext();
 
@@ -91,5 +91,29 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
                         select p;
             return query;
         }
+
+        #region IDisposable Support
+
+        private bool disposedValue = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+                disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
     }
 }
