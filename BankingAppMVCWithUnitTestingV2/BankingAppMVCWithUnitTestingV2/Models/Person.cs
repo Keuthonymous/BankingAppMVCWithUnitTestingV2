@@ -37,5 +37,7 @@ namespace BankingAppMVCWithUnitTestingV2.Models
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
+
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }
