@@ -79,7 +79,7 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Fname,Lname,PersonNum,Email,Address,BirthDate")] Person person)
+        public ActionResult Edit([Bind(Include = "ID,Fname,Lname,Email,Address,BirthDate")] Person person)
         {
             if (ModelState.IsValid)
             {
