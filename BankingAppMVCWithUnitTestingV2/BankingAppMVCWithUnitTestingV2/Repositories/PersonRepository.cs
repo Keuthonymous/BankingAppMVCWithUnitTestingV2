@@ -27,11 +27,8 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
 
         public void Add(Person person)
         {
-            if (!db.Persons.Contains(person))
-            {
                 db.Persons.Add(person);
                 db.SaveChanges();
-            }
         }
 
         public void Remove(Person person)
@@ -68,7 +65,7 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
             return query;
         }
 
-        public Person GetByPersonNum(int? PersonNum)
+        public Person GetByPersonNum(string PersonNum)
         {
             var query = (from p in db.Persons
                          where p.PersonNum == PersonNum

@@ -17,7 +17,6 @@ namespace BankingAppMVCWithUnitTestingV2.Models
         [DisplayName("Account Type")]
         public AccountType Type { get; set; }
 
-        [Required]
         [DataType(DataType.Currency)]
         public int Balance { get; set; }
 

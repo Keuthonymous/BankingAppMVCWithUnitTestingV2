@@ -147,6 +147,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="DataAccess\BankContext.cs" />
@@ -156,6 +157,14 @@
     <Compile Include="Migrations\201706261225438_Initial.cs" />
     <Compile Include="Migrations\201706261225438_Initial.Designer.cs">
       <DependentUpon>201706261225438_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706261351057_PersonNummerToString.cs" />
+    <Compile Include="Migrations\201706261351057_PersonNummerToString.Designer.cs">
+      <DependentUpon>201706261351057_PersonNummerToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706261401502_BalanceToNotRequired.cs" />
+    <Compile Include="Migrations\201706261401502_BalanceToNotRequired.Designer.cs">
+      <DependentUpon>201706261401502_BalanceToNotRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -211,10 +220,22 @@
     <Content Include="Views\People\Details.cshtml" />
     <Content Include="Views\People\Edit.cshtml" />
     <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\People\_RenderAccounts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706261225438_Initial.resx">
       <DependentUpon>201706261225438_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706261351057_PersonNummerToString.resx">
+      <DependentUpon>201706261351057_PersonNummerToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706261401502_BalanceToNotRequired.resx">
+      <DependentUpon>201706261401502_BalanceToNotRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

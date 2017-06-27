@@ -24,7 +24,7 @@ namespace BankingAppMVCWithUnitTestingV2.Models
 
         [Required(ErrorMessage = "Personal Number is required")]
         [DisplayName("Person Nummer")]
-        public int PersonNum { get; set; }
+        public string PersonNum { get; set; }
 
         [Required(ErrorMessage = "Email is Required")]
         [DataType(DataType.EmailAddress)]
