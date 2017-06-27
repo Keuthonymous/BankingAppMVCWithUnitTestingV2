@@ -60,8 +60,8 @@
 
     </dl>
 </div>
-@Html.Partial("_RenderAccounts")
 <p>
+    @Html.ActionLink("View Accounts", "GetAccounts", "PeopleAccount", new { id = Model.ID} ) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
