@@ -23,20 +23,21 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
 
         public void Remove(Account account)
         {
-            if (db.Accounts.Contains(account))
-            {
-                db.Accounts.Remove(account);
-                db.SaveChanges();
-            }
+            db.Accounts.Remove(account);
+            db.SaveChanges();
         }
 
         public void Edit(Account account)
         {
-            if(db.Accounts.Contains(account))
-            {
-                db.Entry(account).State = EntityState.Modified;
-                db.SaveChanges();
-            }
+            db.Entry(account).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void Deposit(Account account, double amount)
+        {
+            account.Balance = account.Balance + amount;
+            account.TransHistory.Add(new Transaction { Type = Transaction.EventType.Deposit, EventTime = DateTime.Now });
+            db.SaveChanges();
         }
 
         public Account Find(int? id)
@@ -52,7 +53,7 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
         public IEnumerable<Account> Include()
         {
             return db.Accounts.Include(a => a.Person);
-            
+
         }
 
 

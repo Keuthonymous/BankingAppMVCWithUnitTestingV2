@@ -49,6 +49,12 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
             }
         }
 
+        public void AccountsAdd(Person person, Account account)
+        {
+            person.Accounts.Add(account);
+            db.SaveChanges();
+        }
+
         public IEnumerable<Person> GetByFName(string Fname)
         {
             var query = from p in db.Persons

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BankingAppMVCWithUnitTestingV2.Models.Account>
+﻿@model BankingAppMVCWithUnitTestingV2.ViewModels.PersonAccountVM
 
 @{
     ViewBag.Title = "GetAccounts";
@@ -7,23 +7,23 @@
 <h2>GetAccounts</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", "PeopleAccount", new { personID = Model.PersonID}, null)
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Person.Fname)
+            @Html.DisplayNameFor(model => model.Accounts.First().Person.Fname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            @Html.DisplayNameFor(model => model.Accounts.First().Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Balance)
+            @Html.DisplayNameFor(model => model.Accounts.First().Balance)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Accounts) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Person.Fname)
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.Balance)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", "Accounts", new { id=item.ID }, null) |
+            @Html.ActionLink("Details", "Details", "Accounts", new { id=item.ID }, null) |
+            @Html.ActionLink("Delete", "Delete", "Accounts", new { id=item.ID }, null)
         </td>
     </tr>
 }

@@ -120,6 +120,20 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Deposit()
+        {
+            return View();
+        }
+
+        [HttpPost, ActionName("Deposit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Deposit(int id, int amount)
+        {
+            Account account = db.Find(id);
+            db.Deposit(account, amount);
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
