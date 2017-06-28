@@ -30,11 +30,30 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
             db.SaveChanges();
         }
 
-        public void Deposit(Account account, double? amount)
+        public void Deposit(Account account, double amount)
         {
             account.Balance = account.Balance + amount;
-            account.TransHistory.Add(new Transaction { Type = Transaction.EventType.Deposit, EventTime = DateTime.Now });
+            account.TransHistory.Add(new Transaction { Type = Transaction.EventType.Deposit, EventTime = DateTime.Now, Amount = amount });
             db.SaveChanges();
+        }
+
+        public void Withdraw(Account account, double amount)
+        {
+            account.Balance = account.Balance - amount;
+            account.TransHistory.Add(new Transaction { Type = Transaction.EventType.WithDrawl, EventTime = DateTime.Now, Amount = amount });
+            db.SaveChanges();
+        }
+
+        public void Transfer(Account acc1, Account acc2, double amount)
+        {
+            acc1.Balance = acc1.Balance - amount;
+            acc2.Balance = acc2.Balance + amount;
+
+            acc1.TransHistory.Add(new Transaction { Type = Transaction.EventType.Transfer, EventTime = DateTime.Now, Amount = amount });
+            acc2.TransHistory.Add(new Transaction { Type = Transaction.EventType.Transfer, EventTime = DateTime.Now, Amount = amount });
+
+            db.SaveChanges();
+
         }
 
         public Account Find(int? id)
@@ -50,7 +69,6 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
         public IEnumerable<Account> Include()
         {
             return db.Accounts.Include(a => a.Person);
-
         }
 
 

@@ -175,6 +175,22 @@
     <Compile Include="Migrations\201706280801127_newMigrationAgain.Designer.cs">
       <DependentUpon>201706280801127_newMigrationAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706280836369_AccountAdjustmentBalanceFromNullableToNotNullable.cs" />
+    <Compile Include="Migrations\201706280836369_AccountAdjustmentBalanceFromNullableToNotNullable.Designer.cs">
+      <DependentUpon>201706280836369_AccountAdjustmentBalanceFromNullableToNotNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706280949485_TransModelAdjustments.cs" />
+    <Compile Include="Migrations\201706280949485_TransModelAdjustments.Designer.cs">
+      <DependentUpon>201706280949485_TransModelAdjustments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706280954338_TransModelAdjustmentsAgain.cs" />
+    <Compile Include="Migrations\201706280954338_TransModelAdjustmentsAgain.Designer.cs">
+      <DependentUpon>201706280954338_TransModelAdjustmentsAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281135169_NewTransTypeTransfer.cs" />
+    <Compile Include="Migrations\201706281135169_NewTransTypeTransfer.Designer.cs">
+      <DependentUpon>201706281135169_NewTransTypeTransfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Person.cs" />
@@ -183,6 +199,7 @@
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="ViewModels\PersonAccountVM.cs" />
+    <Compile Include="ViewModels\PersonCheckBoxVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\BankDatabase.mdf" />
@@ -201,6 +218,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Deposit.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -239,6 +257,9 @@
     <Content Include="Views\PeopleAccount\Create.cshtml" />
     <Content Include="Views\PeopleAccount\GetAccounts.cshtml" />
     <Content Include="Views\Accounts\Deposit.cshtml" />
+    <Content Include="Views\Accounts\Withdraw.cshtml" />
+    <Content Include="Views\Accounts\ViewTransHistory.cshtml" />
+    <Content Include="Views\PeopleAccount\Transfer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706261225438_Initial.resx">
@@ -255,6 +276,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706280801127_newMigrationAgain.resx">
       <DependentUpon>201706280801127_newMigrationAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706280836369_AccountAdjustmentBalanceFromNullableToNotNullable.resx">
+      <DependentUpon>201706280836369_AccountAdjustmentBalanceFromNullableToNotNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706280949485_TransModelAdjustments.resx">
+      <DependentUpon>201706280949485_TransModelAdjustments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706280954338_TransModelAdjustmentsAgain.resx">
+      <DependentUpon>201706280954338_TransModelAdjustmentsAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281135169_NewTransTypeTransfer.resx">
+      <DependentUpon>201706281135169_NewTransTypeTransfer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -38,5 +38,22 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
             }
             return View(account);
         }
+
+        public ActionResult Transfer()
+        {
+            return View(new PersonCheckBoxVM { People = pr.Persons()});
+        }
+
+        public ActionResult SelectAccount(int?[] id)
+        {
+            List<Person> People = new List<Person>();
+            foreach (int i in id)
+            {
+                People.Add(pr.Person(i)); 
+            }
+
+            
+            return View(People);
+        }
     }
 }

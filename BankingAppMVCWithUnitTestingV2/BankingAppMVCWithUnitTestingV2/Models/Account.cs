@@ -18,7 +18,7 @@ namespace BankingAppMVCWithUnitTestingV2.Models
         public AccountType Type { get; set; }
 
         [DataType(DataType.Currency)]
-        public double? Balance { get; set; }
+        public double Balance { get; set; }
 
         [Required]
         [ForeignKey("Person")]

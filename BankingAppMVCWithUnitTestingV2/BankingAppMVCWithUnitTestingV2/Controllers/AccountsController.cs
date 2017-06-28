@@ -120,23 +120,51 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Deposit()
+        public ActionResult Deposit(int? id)
         {
-            return View();
+            Account account = db.Find(id);
+            return View(account);
         }
 
         [HttpPost, ActionName("Deposit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Deposit(int? id, double? amount)
+        public ActionResult Deposit(int? id, double amount)
         {
             Account account = db.Find(id);
-            if (amount == null)
+            if (amount < 0)
             {
                 return View(account);
             }
-            
+
             db.Deposit(account, amount);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Withdraw(int? id)
+        {
+            Account account = db.Find(id);
+            return View(account);
+        }
+
+        [HttpPost, ActionName("Withdraw")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Withdraw(int? id, double amount)
+        {
+            Account account = db.Find(id);
+            if (amount > 0 && amount < account.Balance)
+            {
+                db.Withdraw(account, amount);
+                return RedirectToAction("Index");
+            }
+            else return View(account);
+
+        }
+
+        public ActionResult ViewTransHistory(int? id)
+        {
+            Account account = db.Find(id);
+            IEnumerable<Transaction> trans = account.TransHistory;
+            return View(trans);
         }
 
         protected override void Dispose(bool disposing)
