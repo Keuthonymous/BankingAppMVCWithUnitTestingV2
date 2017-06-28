@@ -127,9 +127,14 @@ namespace BankingAppMVCWithUnitTestingV2.Controllers
 
         [HttpPost, ActionName("Deposit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Deposit(int id, int amount)
+        public ActionResult Deposit(int? id, double? amount)
         {
             Account account = db.Find(id);
+            if (amount == null)
+            {
+                return View(account);
+            }
+            
             db.Deposit(account, amount);
             return RedirectToAction("Index");
         }

@@ -14,11 +14,8 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
 
         public void Add(Account account)
         {
-            if (!db.Accounts.Contains(account))
-            {
-                db.Accounts.Add(account);
-                db.SaveChanges();
-            }
+            db.Accounts.Add(account);
+            db.SaveChanges();
         }
 
         public void Remove(Account account)
@@ -33,7 +30,7 @@ namespace BankingAppMVCWithUnitTestingV2.Repositories
             db.SaveChanges();
         }
 
-        public void Deposit(Account account, double amount)
+        public void Deposit(Account account, double? amount)
         {
             account.Balance = account.Balance + amount;
             account.TransHistory.Add(new Transaction { Type = Transaction.EventType.Deposit, EventTime = DateTime.Now });

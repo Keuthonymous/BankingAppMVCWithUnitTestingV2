@@ -167,6 +167,14 @@
     <Compile Include="Migrations\201706261401502_BalanceToNotRequired.Designer.cs">
       <DependentUpon>201706261401502_BalanceToNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706280741485_newMigration.cs" />
+    <Compile Include="Migrations\201706280741485_newMigration.Designer.cs">
+      <DependentUpon>201706280741485_newMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706280801127_newMigrationAgain.cs" />
+    <Compile Include="Migrations\201706280801127_newMigrationAgain.Designer.cs">
+      <DependentUpon>201706280801127_newMigrationAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Person.cs" />
@@ -230,6 +238,7 @@
     <Content Include="Views\People\_RenderAccounts.cshtml" />
     <Content Include="Views\PeopleAccount\Create.cshtml" />
     <Content Include="Views\PeopleAccount\GetAccounts.cshtml" />
+    <Content Include="Views\Accounts\Deposit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706261225438_Initial.resx">
@@ -240,6 +249,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706261401502_BalanceToNotRequired.resx">
       <DependentUpon>201706261401502_BalanceToNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706280741485_newMigration.resx">
+      <DependentUpon>201706280741485_newMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706280801127_newMigrationAgain.resx">
+      <DependentUpon>201706280801127_newMigrationAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
